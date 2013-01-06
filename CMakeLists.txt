@@ -371,7 +371,7 @@ MESHLAB_OPTION(MESHLAB_BUNDLED_LIBS "Build bundled libraries.")
 # in order to allow the sub-builds to do their own thing without
 # overriding anything except what we *need* to override (which is
 # already defined before this point.)
-#add_subdirectory(src/other)
+add_subdirectory(src/other)
 
 # MeshLab compiler checks...
 
@@ -387,7 +387,9 @@ MESHLAB_OPTION(MESHLAB_BUNDLED_LIBS "Build bundled libraries.")
 
 # Check for Qt and OpenGL - no point in proceeding without those
 find_package(OpenGL REQUIRED)
+set(Qt4_FIND_COMPONENTS QtCore QtGui QtWebKit QtScript QtXmlPatterns QtXml QtOpenGL QtNetwork)
 find_package(Qt 4.7 REQUIRED)
+include(${QT_USE_FILE})
 
 # Look for threads (doesn't check for headers)
 # The variable CMAKE_THREAD_LIBS_INIT is the one of interest
@@ -454,7 +456,7 @@ if(MSVC)
 endif(MSVC)
 
 # We've done the toplevel configure steps, now add the subdirectories
-#add_subdirectory(src)
+add_subdirectory(src)
 #add_subdirectory(include)
 #add_subdirectory(misc)
 
