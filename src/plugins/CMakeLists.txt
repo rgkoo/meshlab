@@ -41,6 +41,12 @@ add_definitions(-DQT_PLUGIN)
 # Basic IO
 add_subdirectory(io_base)
 
+# 3DS (3D-Studio Release 3 and 4) file support
+add_subdirectory(io_3ds)
+
+# Breuckmann file format (bre)
+add_subdirectory(io_bre)
+
 # Restore previous ouput directory settings
 
 set(BIN_DIR ${BIN_DIR_TMP})
