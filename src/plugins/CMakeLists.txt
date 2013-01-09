@@ -47,6 +47,23 @@ add_subdirectory(io_3ds)
 # Breuckmann file format (bre)
 add_subdirectory(io_bre)
 
+# Collada
+add_subdirectory(io_collada)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Restore previous ouput directory settings
 
 set(BIN_DIR ${BIN_DIR_TMP})
