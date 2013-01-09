@@ -50,6 +50,8 @@ add_subdirectory(io_bre)
 # Collada
 add_subdirectory(io_collada)
 
+# Open Compressed Triangle Mesh format 
+add_subdirectory(io_ctm)
 
 
 
