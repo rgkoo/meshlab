@@ -38,6 +38,7 @@ add_definitions(-DQT_PLUGIN)
 # ********************************
 # ***** Input/Output plugins *****
 # ********************************
+
 # Basic IO
 add_subdirectory(io_base)
 
@@ -53,18 +54,41 @@ add_subdirectory(io_collada)
 # Open Compressed Triangle Mesh format 
 add_subdirectory(io_ctm)
 
+# JSON
+add_subdirectory(io_json)
+
+# U3D
+add_subdirectory(io_u3d)
+
+# tri
+add_subdirectory(io_tri)
+
+# X3D
+add_subdirectory(io_x3d)
+
+# gts
+add_subdirectory(io_gts)
+
+# expe
+add_subdirectory(io_expe)
+
+# pdb
+add_subdirectory(io_pdb)
 
 
 
+# **************************
+# ***** Filter plugins *****
+# **************************
 
+# Aging
+add_subdirectory(filter_aging)
 
+# AO
+add_subdirectory(filter_ao)
 
-
-
-
-
-
-
+# Autoalign
+add_subdirectory(filter_autoalign)
 
 # Restore previous ouput directory settings
 

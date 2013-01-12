@@ -14,7 +14,7 @@
 
 #include "filter_autoalign.h"
 #include <vcg/complex/algorithms/autoalign_4pcs.h>
-#include "../../meshlabplugins/edit_align/align/Guess.h"
+#include "../edit_align/align/Guess.h"
 
 using namespace vcg;
 using namespace std;
