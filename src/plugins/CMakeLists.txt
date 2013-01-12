@@ -90,6 +90,24 @@ add_subdirectory(filter_ao)
 # Autoalign
 add_subdirectory(filter_autoalign)
 
+# BN pts
+add_subdirectory(filter_bnpts)
+
+# Camera
+add_subdirectory(filter_camera)
+
+# Clean
+add_subdirectory(filter_clean)
+
+
+
+
+
+
+
+
+
+
 # Restore previous ouput directory settings
 
 set(BIN_DIR ${BIN_DIR_TMP})
