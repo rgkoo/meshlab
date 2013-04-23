@@ -81,30 +81,42 @@ add_subdirectory(io_pdb)
 # ***** Filter plugins *****
 # **************************
 
-# Aging
 add_subdirectory(filter_aging)
-
-# AO
 add_subdirectory(filter_ao)
-
-# Autoalign
 add_subdirectory(filter_autoalign)
-
-# BN pts
 add_subdirectory(filter_bnpts)
-
-# Camera
 add_subdirectory(filter_camera)
-
-# Clean
 add_subdirectory(filter_clean)
-
-
-
-
-
-
-
+add_subdirectory(filter_colorize)
+add_subdirectory(filter_colorproc)
+add_subdirectory(filter_color_projection)
+add_subdirectory(filter_create)
+add_subdirectory(filter_csg)
+add_subdirectory(filter_dirt)
+#add_subdirectory(filter_feature_alignment)
+#add_subdirectory(filter_fractal)
+#add_subdirectory(filter_func)
+#add_subdirectory(filter_img_patch_param)
+#add_subdirectory(filter_isoparametrization)
+#add_subdirectory(filter_layer)
+#add_subdirectory(filter_measure)
+#add_subdirectory(filter_meshing)
+#add_subdirectory(filter_mls)
+#add_subdirectory(filter_mutualinfoxml)
+#add_subdirectory(filter_photosynth)
+#add_subdirectory(filter_plymc)
+#add_subdirectory(filter_poisson)
+#add_subdirectory(filter_qhull)
+#add_subdirectory(filter_quality)
+#add_subdirectory(filter_sampling)
+#add_subdirectory(filter_sdf)
+#add_subdirectory(filter_sdfgpu)
+#add_subdirectory(filter_select)
+#add_subdirectory(filter_ssynth)
+#add_subdirectory(filter_texture)
+#add_subdirectory(filter_trioptimize)
+#add_subdirectory(filter_unsharp)
+#add_subdirectory(filter_zippering)
 
 
 
