@@ -29,7 +29,7 @@
 #include <QObject>
 #include <common/meshmodel.h>
 #include <common/interfaces.h>
-#include <meshlabplugins/io_x3d/io_x3d.h>
+#include <io_x3d.h>
 
 class FilterSSynth : public QObject,public MeshIOInterface, public MeshFilterInterface{
     Q_OBJECT
