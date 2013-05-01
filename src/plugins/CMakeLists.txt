@@ -41,40 +41,45 @@ add_definitions(-DQT_PLUGIN)
 
 # Basic IO
 add_subdirectory(io_base)
-
 # 3DS (3D-Studio Release 3 and 4) file support
 add_subdirectory(io_3ds)
-
 # Breuckmann file format (bre)
 add_subdirectory(io_bre)
-
 # Collada
 add_subdirectory(io_collada)
-
 # Open Compressed Triangle Mesh format 
 add_subdirectory(io_ctm)
-
 # JSON
 add_subdirectory(io_json)
-
 # U3D
 add_subdirectory(io_u3d)
-
 # tri
 add_subdirectory(io_tri)
-
 # X3D
 add_subdirectory(io_x3d)
-
 # gts
 add_subdirectory(io_gts)
-
 # expe
 add_subdirectory(io_expe)
-
 # pdb
 add_subdirectory(io_pdb)
 
+# **************************
+# ***** Filter plugins *****
+# **************************
+
+add_subdirectory(edit_align)
+#add_subdirectory(edit_arc3D)
+#add_subdirectory(edit_hole)
+#add_subdirectory(edit_manipulators)
+#add_subdirectory(edit_measure)
+#add_subdirectory(edit_paint)
+#add_subdirectory(edit_pickpoints)
+#add_subdirectory(edit_point)
+#add_subdirectory(edit_quality)
+#add_subdirectory(edit_select)
+#add_subdirectory(edit_slice)
+#add_subdirectory(edit_texture)
 
 
 # **************************
@@ -113,10 +118,10 @@ add_subdirectory(filter_sdf)
 add_subdirectory(filter_sdfgpu)
 add_subdirectory(filter_select)
 add_subdirectory(filter_ssynth)
-#add_subdirectory(filter_texture)
-#add_subdirectory(filter_trioptimize)
-#add_subdirectory(filter_unsharp)
-#add_subdirectory(filter_zippering)
+add_subdirectory(filter_texture)
+add_subdirectory(filter_trioptimize)
+add_subdirectory(filter_unsharp)
+add_subdirectory(filter_zippering)
 
 
 
