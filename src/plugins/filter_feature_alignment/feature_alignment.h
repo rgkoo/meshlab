@@ -23,7 +23,7 @@
 #ifndef FEATURE_ALIGNMENT_H
 #define FEATURE_ALIGNMENT_H
 
-#include <meshlab/meshmodel.h>
+#include <common/meshmodel.h>
 
 #include <vcg/container/simple_temporary_data.h>
 #include <vcg/complex/algorithms/clustering.h>
@@ -34,7 +34,7 @@
 #include <vcg/complex/algorithms/closest.h>
 #include <vcg/complex/algorithms/point_sampling.h>
 #include <vcg/complex/algorithms/overlap_estimation.h>
-#include <meshlabplugins/edit_pickpoints/pickedPoints.h>
+#include <../edit_pickpoints/pickedPoints.h>
 
 #include <qdatetime.h>
 

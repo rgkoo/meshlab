@@ -27,7 +27,7 @@
 #include "filter_feature_alignment.h"
 #include "feature_msc.h"
 #include "feature_rgb.h"
-#include <meshlabplugins/edit_pickpoints/pickedPoints.h>
+#include <../edit_pickpoints/pickedPoints.h>
 
 #include <stdlib.h>
 #include <time.h>

@@ -10,8 +10,8 @@
 #include <vcg/complex/algorithms/smooth.h>
 #include <vcg/complex/algorithms/clustering.h>
 
-#include <meshlabplugins/filter_mls/apss.h>
-#include <meshlabplugins/filter_mls/implicits.h>
+#include <../filter_mls/apss.h>
+#include <../filter_mls/implicits.h>
 
 using namespace vcg;
 using namespace std;
