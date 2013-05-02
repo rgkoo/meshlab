@@ -64,22 +64,22 @@ add_subdirectory(io_expe)
 # pdb
 add_subdirectory(io_pdb)
 
-# **************************
-# ***** Filter plugins *****
-# **************************
+# ************************
+# ***** Edit plugins *****
+# ************************
 
 add_subdirectory(edit_align)
-#add_subdirectory(edit_arc3D)
-#add_subdirectory(edit_hole)
-#add_subdirectory(edit_manipulators)
-#add_subdirectory(edit_measure)
-#add_subdirectory(edit_paint)
-#add_subdirectory(edit_pickpoints)
-#add_subdirectory(edit_point)
-#add_subdirectory(edit_quality)
-#add_subdirectory(edit_select)
+add_subdirectory(edit_arc3D)
+add_subdirectory(edit_hole)
+add_subdirectory(edit_manipulators)
+add_subdirectory(edit_measure)
+add_subdirectory(edit_paint)
+add_subdirectory(edit_pickpoints)
+add_subdirectory(edit_point)
+add_subdirectory(edit_quality)
+add_subdirectory(edit_select)
 #add_subdirectory(edit_slice)
-#add_subdirectory(edit_texture)
+add_subdirectory(edit_texture)
 
 
 # **************************
