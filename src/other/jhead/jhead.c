@@ -1393,7 +1393,7 @@ time_t ParseCmdDate(char * DateSpecified)
 //--------------------------------------------------------------------------
 // The main program.
 //--------------------------------------------------------------------------
-int main (int argc, char **argv)
+int main_ (int argc, char **argv)
 {
     int argn;
     char * arg;

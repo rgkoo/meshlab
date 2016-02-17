@@ -286,8 +286,8 @@ void Histogram<ScalarType>::Clear()
 	n=0;
 	minv=0;
 	maxv=1;
-  minElem = std::numeric_limits<ScalarType>::max();
-  maxElem = -std::numeric_limits<ScalarType>::max();
+  minElem = (std::numeric_limits<ScalarType>::max)();
+  maxElem = -(std::numeric_limits<ScalarType>::max)();
 }
 
 /*
@@ -318,8 +318,8 @@ void Histogram<ScalarType>::SetRange(ScalarType _minv, ScalarType _maxv, int _n,
 	fill(H.begin(),H.end(),0);
 	R.resize(n+3);
 	
-	R[0]   = - std::numeric_limits< ScalarType >::max(); 
-	R[n+2] =   std::numeric_limits< ScalarType >::max(); 
+	R[0]   = - (std::numeric_limits< ScalarType >::max)(); 
+	R[n+2] =   (std::numeric_limits< ScalarType >::max)(); 
 
 	double delta=(maxv-minv);
 	if(gamma==1)

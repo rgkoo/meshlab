@@ -28,6 +28,7 @@
 #include <list>
 #include <utility>
 #include <QMap>
+#include <QString>
 /**
   This is the logging class.
   One for each document. Responsible of getting an history of the logging message printed out by filters.
@@ -51,7 +52,7 @@ public:
 	void Logf(int Level, const char * f, ... );
   void Log(int Level, const char * buf )
 	{
-		S.push_back(std::make_pair<int,QString>(Level,buf));
+		S.push_back(std::make_pair(Level,buf));
     qDebug("LOG: %i %s",Level,buf);
 	}
 

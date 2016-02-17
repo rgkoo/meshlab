@@ -49,6 +49,7 @@ Initial Commit
 #include <vcg/space/index/grid_static_ptr.h>
 #include <vcg/complex/allocate.h>
 #include <vcg/complex/algorithms/update/flag.h>
+#include <limits> 
 
 
 namespace vcg {
@@ -76,7 +77,7 @@ class Stat
 	}
 	static std::pair<float,float> ComputePerVertexQualityMinMax( MeshType & m)
 	{
-	std::pair<float,float> minmax = std::make_pair(std::numeric_limits<float>::max(),-std::numeric_limits<float>::max());
+		std::pair<float, float> minmax = std::make_pair((std::numeric_limits<float>::max)(), -(std::numeric_limits<float>::max)());
 		 
 		VertexIterator vi;
 		for(vi = m.vert.begin(); vi != m.vert.end(); ++vi)
@@ -95,7 +96,7 @@ class Stat
 	}
 	static std::pair<float,float> ComputePerFaceQualityMinMax( MeshType & m)
 	{
-		std::pair<float,float> minmax = std::make_pair(std::numeric_limits<float>::max(),-std::numeric_limits<float>::max());
+		std::pair<float,float> minmax = std::make_pair((std::numeric_limits<float>::max)(),-(std::numeric_limits<float>::max)());
 		
 		FaceIterator fi;
 		for(fi = m.face.begin(); fi != m.face.end(); ++fi)

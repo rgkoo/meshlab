@@ -27,11 +27,15 @@
 
 int main(int argc, char *argv[])
 {	 
+	QTextCodec *codec = QTextCodec::codecForName("GBK");//ÉèÖÃÖÐÎÄ
+	QTextCodec::setCodecForTr(codec);
+	QTextCodec::setCodecForLocale(codec);
+	QTextCodec::setCodecForCStrings(codec);
   MeshLabApplication app(argc, argv);
   QLocale::setDefault(QLocale::C);
   QCoreApplication::setOrganizationName("VCG");
   QCoreApplication::setApplicationName("MeshLab");
-	
+  
 		if(argc>1)	
 		{
 			QString helpOpt1="-h";

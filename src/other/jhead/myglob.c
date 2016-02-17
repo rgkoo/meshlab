@@ -251,7 +251,7 @@ void SlashToNative(char * Path)
 //--------------------------------------------------------------------------------
 // The main program.
 //--------------------------------------------------------------------------------
-int main (int argc, char **argv)
+int main111 (int argc, char **argv)
  {
     int argn;
     char * arg;

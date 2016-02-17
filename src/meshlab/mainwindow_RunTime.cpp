@@ -1695,14 +1695,15 @@ bool MainWindow::openProject(QString fileName)
   if (QString(fi.suffix()).toLower() == "out"){
 
 	QString cameras_filename = fileName;
-	QString image_list_filename;
-	QString model_filename;
-
+	QString image_list_filename = QFileInfo(fileName).absolutePath()+"/list.txt";
+	QString model_filename = QFileInfo(fileName).absolutePath() + "/models/output.obj";
+	/*
     image_list_filename = QFileDialog::getOpenFileName(
                 this  ,  tr("Open image list file"),
                 QFileInfo(fileName).absolutePath(),
                  tr("Bundler images list file (*.txt)")
                 );
+	*/
 	if(image_list_filename.isEmpty())
       return false;
 
@@ -1715,12 +1716,14 @@ bool MainWindow::openProject(QString fileName)
 	//if(model_filename.isEmpty())
     //  return false;
 
-	GLA()->setColorMode(GLW::CMPerVert);
-	GLA()->setDrawMode(GLW::DMPoints);
+	//GLA()->setColorMode(GLW::CMPerVert);
+	//GLA()->setDrawMode(GLW::DMPoints);
+	importMesh(model_filename);
 	if(!MeshDocumentFromBundler(*meshDoc(),cameras_filename,image_list_filename,model_filename)){
       QMessageBox::critical(this, tr("Meshlab Opening Error"), "Unable to open OUTs file");
       return false;
 	}
+	meshDoc()->getMeshByFullName("model")->Enable(false);
 	//else{
 	//	for (int i=0; i<meshDoc()->meshList.size(); i++)
 	//		{
@@ -2066,7 +2069,44 @@ bool MainWindow::loadMesh(const QString& fileName, MeshIOInterface *pCurrentIOPl
   meshDoc()->setBusy(false);
 	return true;
 }
+//read pmvs data dir
+bool MainWindow::importPMVS(QString dirName) {
+	QString dir_path = QFileDialog::getExistingDirectory(this, tr("数据导入"), tr("选择PMVS目录"));
+	if (dir_path.isEmpty()) {
+		return false;
+	}
+	QDir dir;
+	if (!(dir.exists(dir_path)
+		&& QFileInfo(dir_path + "/bundle.rd.out").exists())) {
+		QMessageBox::warning(this, "pmvs Warning", tr("非标准PMVS文件目录"));
+		return false;
+	}
+	pmvs_dir = dir_path;
 
+	QString cameras_filename = dir_path + "/bundle.rd.out";
+	QString image_list_filename = dir_path + "/visualize_list.txt";
+	QString model_filename = pmvs_dir + "/models/output.obj";
+
+	
+	if (image_list_filename.isEmpty())
+		return false;
+
+	//GLA()->setColorMode(GLW::CMPerVert);
+	//GLA()->setDrawMode(GLW::DMPoints);
+	if (!MeshDocumentFromBundler(*meshDoc(), cameras_filename, image_list_filename, model_filename)){
+		QMessageBox::critical(this, tr("Meshlab Opening Error"), "Unable to open OUTs file");
+		return false;
+	}
+	GLA()->set_camera_visible(true);
+	/*
+	ibr::LoadBundle(pmvs_dir.toStdString() + "/bundle.rd.out", Bundle_cameras);
+	GLA()->set_Bundle_cameras(Bundle_cameras);
+	
+	QString textured_model_path = pmvs_dir + "/models/output.obj";
+	importMesh(textured_model_path);
+	*/
+	return true;
+}
 // Opening files in a transparent form (IO plugins contribution is hidden to user)
 bool MainWindow::importMesh(QString fileName)
 {

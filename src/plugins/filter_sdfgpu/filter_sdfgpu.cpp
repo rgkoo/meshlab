@@ -202,7 +202,7 @@ bool SdfGpuPlugin::applyFilter(QAction */*filter*/, MeshDocument &md, RichParame
         this->glContext->makeCurrent();
 
         ++tracedRays;
-        mDepthComplexity = std::max(mDepthComplexity, mTempDepthComplexity);
+        mDepthComplexity = (max)(mDepthComplexity, mTempDepthComplexity);
 
         mDepthDistrib[mTempDepthComplexity]++;
         mTempDepthComplexity = 0;

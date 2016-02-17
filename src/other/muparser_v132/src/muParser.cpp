@@ -158,7 +158,7 @@ namespace mu
       throw exception_type(_T("too few arguments for function min."));
 
     value_type fRes=a_afArg[0];
-    for (int i=0; i<a_iArgc; ++i) fRes = std::max(fRes, a_afArg[i]);
+    for (int i=0; i<a_iArgc; ++i) fRes = (max)(fRes, a_afArg[i]);
 
     return fRes;
   }

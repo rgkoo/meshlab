@@ -78,6 +78,26 @@ endif(COMMAND CMAKE_POLICY)
 # set CMake project name
 project(MESHLAB)
 
+set(GLEW_DIR "" CACHE PATH "Prefix prepended to GLEW")
+set(QT_SEARCH_PATH "" CACHE PATH "Prefix prepended to Qt")
+set(OpenCV_SEARCH_PATH ""  CACHE PATH "Prefix prepended to OpenCV directories")
+set(QT_SEARCH_PATH "" CACHE PATH "Prefix prepended to Qt")
+set(ACMAKE_SEARCH_PATH CACHE PATH "Prefix prepended to acmake")
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_SEARCH_PATH} ${OpenCV_SEARCH_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ACMAKE_SEARCH_PATH})
+find_package(OpenCV REQUIRED)
+find_package(GLEW REQUIRED)
+#find_package(GLUT  REQUIRED)
+#find_package(Qt5Widgets REQUIRED)
+#find_package(Qt5OpenGL REQUIRED)
+
+set(runtime_dirs ${QT_SEARCH_PATH}/bin
+  ${OpenCV_CONFIG_PATH}/${OpenCV_ARCH}/${OpenCV_RUNTIME}/bin/
+  ${GLUT_INCLUDE_DIR}/../bin
+  ${GLEW_DIR}/bin
+  )
+include(acmake_append_runtime_dirs)
+include(acmake_copy_dependencies)
 #---------------------------------------------------------------------
 # Define the current MeshLab version.
 
@@ -387,7 +407,7 @@ add_subdirectory(src/other)
 
 # Check for Qt and OpenGL - no point in proceeding without those
 find_package(OpenGL REQUIRED)
-set(Qt4_FIND_COMPONENTS QtCore QtGui QtWebKit QtScript QtXmlPatterns QtXml QtOpenGL QtNetwork)
+set(Qt4_FIND_COMPONENTS QtCore QtGui  QtScript QtXmlPatterns QtXml QtOpenGL QtNetwork)
 find_package(Qt 4.7 REQUIRED)
 include(${QT_USE_FILE})
 

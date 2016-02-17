@@ -658,7 +658,7 @@ namespace vcg {
 			if(m.vn==(int)m.vert.size()) return; 
 			
 			// newVertIndex [ <old_vert_position> ] gives you the new position of the vertex in the vector;
-			pu.remap.resize( m.vert.size(),std::numeric_limits<size_t>::max() );
+			pu.remap.resize( m.vert.size(),(std::numeric_limits<size_t>::max)() );
 			
 			size_t pos=0;
 			size_t i=0;

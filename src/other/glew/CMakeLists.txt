@@ -15,7 +15,7 @@ include_directories(
   )
 
 add_library(glew src/glew.c)
-
+#target_link_libraries(glew opengl32.lib)
 # Install
 if(NOT BIN_DIR)
   set(BIN_DIR bin)

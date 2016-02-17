@@ -541,7 +541,7 @@ bool MlsPlugin::applyFilter(QAction* filter, MeshDocument& md, RichParameterSet&
 					}
 					mesh->cm.vert[i].Q() = c;
 					minc = std::min(c,minc);
-					maxc = std::max(c,maxc);
+					maxc = (max)(c,maxc);
 					minabsc = std::min(fabsf(c),minabsc);
 				}
 			}

@@ -11,7 +11,7 @@ set(io_base_SRCS
   )
 
 add_library(io_base SHARED ${io_base_SRCS})
-target_link_libraries(io_base ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(io_base common ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 install(TARGETS io_base
   RUNTIME DESTINATION ${BIN_DIR}
   LIBRARY DESTINATION ${LIB_DIR}

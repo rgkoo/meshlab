@@ -10,7 +10,7 @@ set(filter_layer_SRCS
   )
 
 add_library(filter_layer SHARED ${filter_layer_SRCS})
-target_link_libraries(filter_layer ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(filter_layer common ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 install(TARGETS filter_layer
   RUNTIME DESTINATION ${BIN_DIR}
   LIBRARY DESTINATION ${LIB_DIR}

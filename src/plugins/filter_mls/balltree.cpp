@@ -118,7 +118,7 @@ void BallTree<_Scalar>::buildNode(Node& node, std::vector<int>& indices, AxisAli
 	avgradius = mRadiusScale * avgradius / Scalar(indices.size());
 	VectorType diag = aabb.max - aabb.min;
 	if  (int(indices.size())<mTargetCellSize
-		|| avgradius*0.9 > std::max(std::max(diag.X(), diag.Y()), diag.Z())
+		|| avgradius*0.9 > (max)((max)(diag.X(), diag.Y()), diag.Z())
 		|| int(level)>=mMaxTreeDepth)
 	{
 		node.leaf = true;

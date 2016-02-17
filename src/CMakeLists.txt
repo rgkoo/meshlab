@@ -37,6 +37,8 @@ else(${CMAKE_SIZEOF_VOID_P} MATCHES "^8$")
 endif(${CMAKE_SIZEOF_VOID_P} MATCHES "^8$")
 
 add_subdirectory(common)
+add_subdirectory(ann_1.1.2)
+add_subdirectory(IBR)
 add_subdirectory(meshlab)
 add_subdirectory(plugins)
 

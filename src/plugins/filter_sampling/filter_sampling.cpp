@@ -481,7 +481,7 @@ void FilterDocSampling::initParameterSet(QAction *action, MeshDocument & md, Ric
                      "based on the choice of the number of samples inside each triangle by a random Poisson-distributed number with mean equal to the expected number of samples times the area of the triangle over the surface of the whole mesh."));
                       break;
 		case FP_STRATIFIED_SAMPLING :  
- 		   parlst.addParam(new RichInt ("SampleNum",  std::max(100000,md.mm()->cm.vn),
+ 		   parlst.addParam(new RichInt ("SampleNum",  (max)(100000,md.mm()->cm.vn),
 											"Number of samples",
 											"The desired number of samples. It can be smaller or larger than the mesh size, and according to the choosed sampling strategy it will try to adapt."));
 			parlst.addParam(new RichEnum("Sampling", 0, 

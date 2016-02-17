@@ -41,6 +41,9 @@
 #include "stdpardialog.h"
 #include "xmlstdpardialog.h"
 #include "xmlgeneratorgui.h"
+#include "IBR.h"
+
+
 
 #define MAXRECENTFILES 4
 
@@ -57,6 +60,9 @@ class MainWindow : public QMainWindow, MainWindowInterface
 {
 	Q_OBJECT
 
+public:
+	std::vector<ibr::Camera> Bundle_cameras;
+	QString pmvs_dir;
 public:
 	// callback function to execute a filter
 	void executeFilter(QAction *action, RichParameterSet &srcpar, bool isPreview);
@@ -77,6 +83,7 @@ private slots:
 
 public slots:
   bool importMesh(QString fileName=QString());
+  bool importPMVS(QString dirName = QString());
   bool importRaster(const QString& fileImg = QString());
   bool openProject(QString fileName=QString());
   bool appendProject(QString fileName=QString());
@@ -361,6 +368,8 @@ private:
 	//////////// Actions Menu File ///////////////////////
   QAction *newProjectAct;
   QAction *openProjectAct, *appendProjectAct, *saveProjectAct, *saveProjectAsAct;
+
+  QAction *importPMVSAct;
   QAction  *importMeshAct,   *exportMeshAct,  *exportMeshAsAct;
   QAction  *importRasterAct;
   QAction *closeProjectAct;

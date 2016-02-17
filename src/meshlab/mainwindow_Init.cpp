@@ -139,6 +139,11 @@ void MainWindow::createActions()
 	//closeProjectAct->setShortcutContext(Qt::ApplicationShortcut);
 	//closeAct->setShortcut(Qt::CTRL+Qt::Key_C);
 	connect(closeProjectAct, SIGNAL(triggered()),mdiarea, SLOT(closeActiveSubWindow()));
+
+	importPMVSAct = new QAction(QIcon(":/images/open_project.png"), tr("import PMVS"), this);
+	connect(importPMVSAct, SIGNAL(triggered()), this, SLOT(importPMVS()));
+
+
 	//connect(closeProjectAct, SIGNAL(triggered()),this, SLOT(closeProjectWindow()));
 	importMeshAct = new QAction(QIcon(":/images/import_mesh.png"),tr("&Import Mesh..."), this);
 	importMeshAct->setShortcutContext(Qt::ApplicationShortcut);
@@ -436,6 +441,7 @@ void MainWindow::createToolBars()
 	mainToolBar->setIconSize(QSize(32,32));
 	mainToolBar->addAction(this->newProjectAct);
 	mainToolBar->addAction(this->openProjectAct);
+	mainToolBar->addAction(importPMVSAct);
 	mainToolBar->addAction(importMeshAct);
 	mainToolBar->addAction(reloadMeshAct);
 //  mainToolBar->addAction(reloadAllMeshAct);
@@ -498,7 +504,7 @@ void MainWindow::createMenus()
 	fileMenu->addAction(saveProjectAct);
 	fileMenu->addAction(closeProjectAct);
 	fileMenu->addSeparator();
-
+	fileMenu->addAction(importPMVSAct);
 	fileMenu->addAction(importMeshAct);
 	fileMenu->addAction(exportMeshAct);
 	fileMenu->addAction(exportMeshAsAct);

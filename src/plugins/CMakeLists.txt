@@ -123,6 +123,8 @@ add_subdirectory(filter_trioptimize)
 add_subdirectory(filter_unsharp)
 add_subdirectory(filter_zippering)
 
+add_subdirectory(decorate_base)
+
 
 
 # Restore previous ouput directory settings

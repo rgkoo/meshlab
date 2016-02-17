@@ -48,7 +48,7 @@ FilterLayerPlugin::FilterLayerPlugin()
               FP_RENAME_MESH <<
 			  FP_RENAME_RASTER <<
               FP_DUPLICATE <<
-              FP_SELECTCURRENT;
+              FP_SELECTCURRENT ;
 
   foreach(FilterIDType tt , types())
 	  actionList << new QAction(filterName(tt), this);

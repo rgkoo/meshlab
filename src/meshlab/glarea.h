@@ -40,6 +40,7 @@
 #include "../common/interfaces.h"
 #include "glarea_setting.h"
 #include "multiViewer_Container.h"
+#include "IBR/IBR.h"
 
 #define SSHOT_BYTES_PER_PIXEL 4
 
@@ -83,10 +84,16 @@ public:
     GLArea(MultiViewer_Container *mvcont, RichParameterSet *current);
 	~GLArea();
 	static void initGlobalParameterSet( RichParameterSet * /*globalparam*/);
-
+	//pmvs
+	void set_camera_visible(bool);
+	void set_Bundle_cameras(std::vector<ibr::Camera>&);
+	void drawCameras();
 private:
   int id;  //the very important unique id of each subwindow.
 
+  //pmvs 
+  bool show_cameras;
+  std::vector<ibr::Camera> Bundle_cameras;
 public:
   int getId() {return id;}
 

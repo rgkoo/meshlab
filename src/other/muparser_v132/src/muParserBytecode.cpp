@@ -48,8 +48,8 @@ namespace mu
     :m_iStackPos(0)
     ,m_iMaxStackSize(0)
     ,m_vBase()
-    ,mc_iSizeVal( std::max( (int)sizeof(value_type)  / (int)sizeof(map_type), 1 ) )
-    ,mc_iSizePtr( std::max( (int)sizeof(value_type*) / (int)sizeof(map_type), 1 ) )
+    ,mc_iSizeVal( (max)( (int)sizeof(value_type)  / (int)sizeof(map_type), 1 ) )
+    ,mc_iSizePtr( (max)( (int)sizeof(value_type*) / (int)sizeof(map_type), 1 ) )
     ,mc_iSizeValEntry( 2 + mc_iSizeVal)
   {
     m_vBase.reserve(1000);
@@ -140,7 +140,7 @@ namespace mu
     m_vBase.push_back( ++m_iStackPos );
     m_vBase.push_back( cmVAR );
 
-    m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
+    m_iMaxStackSize = (max)(m_iMaxStackSize, (size_t)m_iStackPos);
 
     StorePtr(a_pVar);
 
@@ -170,7 +170,7 @@ namespace mu
   {
     m_vBase.push_back( ++m_iStackPos );
     m_vBase.push_back( cmVAL );
-    m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
+    m_iMaxStackSize = (max)(m_iMaxStackSize, (size_t)m_iStackPos);
 
     for (int i=0; i<mc_iSizeVal; ++i)
       m_vBase.push_back( *(reinterpret_cast<map_type*>(&a_fVal) + i) );
@@ -227,7 +227,7 @@ namespace mu
     {
       m_iStackPos = m_iStackPos + a_iArgc + 1; 
     }
-    m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
+    m_iMaxStackSize = (max)(m_iMaxStackSize, (size_t)m_iStackPos);
 
     m_vBase.push_back(m_iStackPos);
     m_vBase.push_back(cmFUNC);
@@ -252,7 +252,7 @@ namespace mu
 	  m_vBase.push_back(a_iArgc);
     m_vBase.push_back(a_iIdx);
 
-    m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
+    m_iMaxStackSize = (max)(m_iMaxStackSize, (size_t)m_iStackPos);
 
     StorePtr(a_pFun);
   }
@@ -357,7 +357,7 @@ namespace mu
 
                     // Variable entries have the same size like value entries
                     // the remaining spave must be skipped
-                    i+= std::max(mc_iSizeVal - mc_iSizePtr, 0);
+                    i+= (max)(mc_iSizeVal - mc_iSizePtr, 0);
                     break;
       			
         case cmFUNC:

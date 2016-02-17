@@ -248,7 +248,7 @@ bool FilterImgPatchParamPlugin::applyFilter( QAction *act,
 		case FP_PATCH_PARAM_AND_TEXTURING:
 		{
             QString texName = par.getString( "textureName" ).simplified();
-            int pathEnd = std::max( texName.lastIndexOf('/'), texName.lastIndexOf('\\') );
+            int pathEnd = (max)( texName.lastIndexOf('/'), texName.lastIndexOf('\\') );
             if( pathEnd != -1 )
                 texName = texName.right( texName.size()-pathEnd-1 );
 
@@ -826,7 +826,7 @@ void FilterImgPatchParamPlugin::patchPacking( RasterPatchMap &patches,
         scaleV = 1.0f / coveredArea.Y();
     }
     else
-        scaleU = scaleV = 1.0f / std::max( coveredArea.X(), coveredArea.Y() );
+        scaleU = scaleV = 1.0f / (max)( coveredArea.X(), coveredArea.Y() );
 
     int n = 0;
     for( RasterPatchMap::iterator rp=patches.begin(); rp!=patches.end(); ++rp )

@@ -640,13 +640,13 @@ bool FilterTexturePlugin::applyFilter(QAction *filter, MeshDocument &md, RichPar
             CheckError(textName.length() == 0, "Texture file not specified");
 
             // Check textName and eventually add .png ext
-            CheckError(std::max<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
+            CheckError((max)<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
             if (!textName.endsWith(".png", Qt::CaseInsensitive) && !textName.endsWith(".dds", Qt::CaseInsensitive) )
                 textName.append(".png");
 
             // Creates path to texture file
             QString fileName(m.fullName());
-            fileName = fileName.left(std::max<int>(fileName.lastIndexOf('\\'),fileName.lastIndexOf('/'))+1).append(textName);
+            fileName = fileName.left((max)<int>(fileName.lastIndexOf('\\'),fileName.lastIndexOf('/'))+1).append(textName);
 
             QFile textFile(fileName);
             if (!textFile.exists())
@@ -691,13 +691,13 @@ bool FilterTexturePlugin::applyFilter(QAction *filter, MeshDocument &md, RichPar
             CheckError(!QFile(m.fullName()).exists(), "Save the file before creating a texture");
 
             QString filePath(m.fullName());
-            filePath = filePath.left(std::max<int>(filePath.lastIndexOf('\\'),filePath.lastIndexOf('/'))+1);
+            filePath = filePath.left((max)<int>(filePath.lastIndexOf('\\'),filePath.lastIndexOf('/'))+1);
 
             if (!overwrite)
             {
                 // Check textName and eventually add .png ext
                 CheckError(textName.length() == 0, "Texture file not specified");
-                CheckError(std::max<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
+                CheckError((max)<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
                 if (!textName.endsWith(".png", Qt::CaseInsensitive))
                     textName.append(".png");
                 filePath.append(textName);
@@ -797,19 +797,19 @@ bool FilterTexturePlugin::applyFilter(QAction *filter, MeshDocument &md, RichPar
                 CheckError(!srcMesh->hasDataMask(MeshModel::MM_WEDGTEXCOORD), "Source mesh doesn't have Per Wedge Texture Coordinates");
                 CheckError(srcMesh->cm.textures.empty(), "Source mesh doesn't have any associated texture");
                 QString path(srcMesh->fullName());
-                path = path.left(std::max<int>(path.lastIndexOf('\\'),path.lastIndexOf('/'))+1).append(srcMesh->cm.textures[0].c_str());
+                path = path.left((max)<int>(path.lastIndexOf('\\'),path.lastIndexOf('/'))+1).append(srcMesh->cm.textures[0].c_str());
                 CheckError(!QFile(path).exists(), QString("Source texture \"").append(path).append("\" doesn't exists"));
                 CheckError(!srcImg.load(path), QString("Source texture \"").append(path).append("\" cannot be opened"));
             }
 
             QString filePath(trgMesh->fullName());
-            filePath = filePath.left(std::max<int>(filePath.lastIndexOf('\\'),filePath.lastIndexOf('/'))+1);
+            filePath = filePath.left((max)<int>(filePath.lastIndexOf('\\'),filePath.lastIndexOf('/'))+1);
 
             if (!overwrite)
             {
                 // Check textName and eventually add .png ext
                 CheckError(textName.length() == 0, "Texture file not specified");
-                CheckError(std::max<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
+                CheckError((max)<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
                 if (!textName.endsWith(".png", Qt::CaseInsensitive))
                     textName.append(".png");
                 filePath.append(textName);
@@ -895,7 +895,7 @@ bool FilterTexturePlugin::applyFilter(QAction *filter, MeshDocument &md, RichPar
             CheckError(!srcMesh->hasDataMask(MeshModel::MM_WEDGTEXCOORD), "Source mesh doesn't have Per Wedge Texture Coordinates");
             CheckError(srcMesh->cm.textures.empty(), "Source mesh doesn't have any associated texture");
             QString path(srcMesh->fullName());
-            path = path.left(std::max<int>(path.lastIndexOf('\\'),path.lastIndexOf('/'))+1).append(srcMesh->cm.textures[0].c_str());
+            path = path.left((max)<int>(path.lastIndexOf('\\'),path.lastIndexOf('/'))+1).append(srcMesh->cm.textures[0].c_str());
             CheckError(!QFile(path).exists(), QString("Source texture \"").append(path).append("\" doesn't exists"));
             QImage srcImg;
             CheckError(!srcImg.load(path), QString("Source texture \"").append(path).append("\" cannot be opened"));

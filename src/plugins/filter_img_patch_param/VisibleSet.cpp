@@ -100,7 +100,7 @@ float VisibleSet::getWeight( const RasterModel *rm, CFaceO &f )
     if( (m_WeightMask & W_IMG_BORDER) && weight>0.0f )
     {
         vcg::Point2f cam = rm->shot.Project( centroid );
-        weight *= 1.0f - std::max( std::abs(2.0f*cam.X()/rm->shot.Intrinsics.ViewportPx.X()-1.0f),
+        weight *= 1.0f - (max)( std::abs(2.0f*cam.X()/rm->shot.Intrinsics.ViewportPx.X()-1.0f),
                                    std::abs(2.0f*cam.Y()/rm->shot.Intrinsics.ViewportPx.Y()-1.0f) );
     }
 

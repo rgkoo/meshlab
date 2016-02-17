@@ -526,7 +526,7 @@ void ExtraMeshDecoratePlugin::DrawQuotedBox(MeshModel &m,QPainter *gla,QFont qf)
 
 void ExtraMeshDecoratePlugin::chooseX(Box3f &box,double *mm,double *mp,GLint *vp,Point3d &x1,Point3d &x2)
 {
-	float d = -std::numeric_limits<float>::max();
+	float d = -(std::numeric_limits<float>::max)();
 	Point3d c;
 	// Project the bbox center
 	gluProject(box.Center()[0],box.Center()[1],box.Center()[2],mm,mp,vp,&c[0],&c[1],&c[2]);
@@ -559,7 +559,7 @@ void ExtraMeshDecoratePlugin::chooseX(Box3f &box,double *mm,double *mp,GLint *vp
 
 void ExtraMeshDecoratePlugin::chooseY(Box3f &box,double *mm,double *mp,GLint *vp,Point3d &y1,Point3d &y2)
 {
-	float d = -std::numeric_limits<float>::max();
+	float d = -(std::numeric_limits<float>::max)();
 	Point3d c;
 	// Project the bbox center
 	gluProject(box.Center()[0],box.Center()[1],box.Center()[2],mm,mp,vp,&c[0],&c[1],&c[2]);
@@ -592,7 +592,7 @@ void ExtraMeshDecoratePlugin::chooseY(Box3f &box,double *mm,double *mp,GLint *vp
 
 void ExtraMeshDecoratePlugin::chooseZ(Box3f &box,double *mm,double *mp,GLint *vp,Point3d &z1,Point3d &z2)
 {
-	float d = -std::numeric_limits<float>::max();
+	float d = -(std::numeric_limits<float>::max)();
 	Point3d c;
 	// Project the bbox center
 	gluProject(box.Center()[0],box.Center()[1],box.Center()[2],mm,mp,vp,&c[0],&c[1],&c[2]);
@@ -1215,6 +1215,7 @@ void ExtraMeshDecoratePlugin::DrawCamera(MeshModel *m, Shotf &ls, vcg::Color4b c
     //if(m!=NULL)
 	  //  len = m->cm.bbox.Diag()/20.0;
     //else
+	drawscale /= 1000.0f;
       len = ls.Intrinsics.FocalMm * drawscale;
 
     glPushMatrix();
@@ -1321,7 +1322,7 @@ void ExtraMeshDecoratePlugin::DrawColorHistogram(CHist &ch, GLArea *gla, QPainte
   {
     float val = ch.MinV() + (i/bn)*(ch.MaxV() - ch.MinV());
     float wide = histW *float(ch.BinCount(val))/histWide;
-    wide= std::min(0.5f,wide);
+    wide= min(0.5f,wide);
     float ypos  = ( i   /bn)*histH;
     float ypos2 = ((i+1)/bn)*histH;
 

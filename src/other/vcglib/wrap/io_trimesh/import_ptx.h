@@ -364,12 +364,12 @@ namespace io {
         if(cb) cb(85,"PTX Mesh Loading - computing vert normals");
         for(int rit=0; rit<rownum; rit++)
         {
-          int ritL = std::max(rit-1,0);
-          int ritR = std::min(rit+1,rownum-1);
+          int ritL = (std::max)(rit-1,0);
+          int ritR = (std::min)(rit+1,rownum-1);
           for(int cit=0; cit<colnum; cit++)
           {
-            int citT = std::max(cit-1,0);
-            int citB = std::min(cit+1,colnum-1);
+            int citT = (std::max)(cit-1,0);
+            int citB = (std::min)(cit+1,colnum-1);
             int v0 = (rit ) + ((cit ) * rownum);
 
             if(m.vert[v0].IsD()) continue;

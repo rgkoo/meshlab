@@ -606,10 +606,10 @@ bool FilterColorProjectionPlugin::applyFilter(QAction *filter, MeshDocument &md,
 
       // texture file name
       QString filePath(model->fullName());
-      filePath = filePath.left(std::max<int>(filePath.lastIndexOf('\\'),filePath.lastIndexOf('/'))+1);
+      filePath = filePath.left((max)<int>(filePath.lastIndexOf('\\'),filePath.lastIndexOf('/'))+1);
       // Check textName and eventually add .png ext
       CheckError(textName.length() == 0, "Texture file not specified");
-      CheckError(std::max<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
+      CheckError((max)<int>(textName.lastIndexOf("\\"),textName.lastIndexOf("/")) != -1, "Path in Texture file not allowed");
       if (!textName.endsWith(".png", Qt::CaseInsensitive))
         textName.append(".png");
       filePath.append(textName);

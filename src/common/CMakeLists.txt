@@ -36,7 +36,7 @@ set(common_SRCS
 
 if(BUILD_SHARED_LIBS)
   add_library(common SHARED ${common_SRCS})
-  target_link_libraries(common glew ${JHEAD_LIBRARY} ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+  target_link_libraries(common ${GLEW_LIBRARIES} ${JHEAD_LIBRARY} ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
   install(TARGETS common
     RUNTIME DESTINATION ${BIN_DIR}
     LIBRARY DESTINATION ${LIB_DIR}
@@ -44,12 +44,12 @@ if(BUILD_SHARED_LIBS)
 endif(BUILD_SHARED_LIBS)
 
 if(BUILD_STATIC_LIBS)
-  add_library(common-static STATIC ${common_SRCS})
-  target_link_libraries(common-static glew ${JHEAD_LIBRARY} ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+  add_library(common STATIC ${common_SRCS})
+  target_link_libraries(common ${GLEW_LIBRARIES} ${JHEAD_LIBRARY} ${QT_LIBRARIES} ${OPENGL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
   if(NOT MSVC)
-    set_target_properties(common-static PROPERTIES OUTPUT_NAME "common")
+    set_target_properties(common PROPERTIES OUTPUT_NAME "common")
   endif(NOT MSVC)
-  install(TARGETS common-static
+  install(TARGETS common
     RUNTIME DESTINATION ${BIN_DIR}
     LIBRARY DESTINATION ${LIB_DIR}
     ARCHIVE DESTINATION ${LIB_DIR})

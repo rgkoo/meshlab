@@ -105,7 +105,7 @@ value_type ParserInt::Max(const value_type* a_afArg, int a_iArgc)
 
   value_type fRes=a_afArg[0];
   for (int i=0; i<a_iArgc; ++i) 
-    fRes = std::max(fRes, a_afArg[i]);
+    fRes = (max)(fRes, a_afArg[i]);
 
   return fRes;
 }

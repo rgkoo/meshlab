@@ -93,7 +93,6 @@ static bool ReadHeader(const char * filename,unsigned int &/*num_cams*/, unsigne
 	return true;
 }
 
-
 static int Open( OpenMeshType &m, std::vector<Shot<ScalarType> >  & shots,
                  std::vector<std::string > & image_filenames,
                  const char * filename,const char * filename_images, const char * filename_images_path = "",CallBackPos *cb=0)
@@ -139,7 +138,7 @@ static int Open( OpenMeshType &m, std::vector<Shot<ScalarType> >  & shots,
     shots[i].Intrinsics.PixelSizeMm = vcg::Point2f(1,1);
     AddIntrinsics(shots[i], std::string(filename_images_path).append(image_filenames[i]).c_str());
   }
-
+  
   // load all correspondences
   typename OpenMeshType::template PerVertexAttributeHandle<CorrVec> ch = vcg::tri::Allocator<OpenMeshType>::template GetPerVertexAttribute<CorrVec>(m,"correspondences");
   if(!vcg::tri::Allocator<OpenMeshType>::IsValidHandle(m,ch))
@@ -161,7 +160,9 @@ static int Open( OpenMeshType &m, std::vector<Shot<ScalarType> >  & shots,
       ch[i].push_back(corr);
     }
   }
+ 
   vcg::tri::UpdateBounding<OpenMeshType>::Box(m);
+  
   fclose(fp);
 
   return (shots.size() == 0);

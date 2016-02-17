@@ -13,7 +13,7 @@ project(SSYNTH)
 
 
 find_package(OpenGL REQUIRED)
-set(Qt4_FIND_COMPONENTS QtCore QtGui QtWebKit QtScript QtXmlPatterns QtXml QtOpenGL QtNetwork)
+set(Qt4_FIND_COMPONENTS QtCore QtGui QtScript QtXmlPatterns QtXml QtOpenGL QtNetwork)
 find_package(Qt 4.7 REQUIRED)
 include(${QT_USE_FILE})
 

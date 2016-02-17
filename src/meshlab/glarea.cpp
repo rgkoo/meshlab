@@ -37,6 +37,13 @@
 using namespace std;
 using namespace vcg;
 
+void GLArea::set_camera_visible(bool visible) {
+	show_cameras = visible;
+}
+void GLArea::set_Bundle_cameras(std::vector<ibr::Camera>& cameras) {
+	Bundle_cameras = cameras;
+}
+
 GLArea::GLArea(MultiViewer_Container *mvcont, RichParameterSet *current)
 : QGLWidget(),interrbutshow(false)
 {
@@ -313,6 +320,9 @@ void GLArea::drawLight()
 			glPopAttrib();
 	}
 	glPopMatrix();
+
+}
+void GLArea::drawCameras(){
 
 }
 
